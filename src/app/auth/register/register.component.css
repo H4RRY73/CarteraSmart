@@ -1,0 +1,150 @@
+/* Estilos generales */
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.form-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: block;
+  width: 120px;
+  margin: 0 auto 1.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.register-footer {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.register-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media queries para diseño responsivo */
+
+/* Para pantallas medianas como tablets */
+@media (max-width: 768px) {
+  .form-container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 100px;
+  }
+}
+
+/* Para pantallas pequeñas como móviles */
+@media (max-width: 480px) {
+  .form-container {
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .logo {
+    width: 80px;
+    margin-bottom: 1rem;
+  }
+}

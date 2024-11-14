@@ -1,0 +1,14 @@
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <img src="assets/carterasmart.png" alt="Logo" class="logo">
+  </div>
+
+  <ul class="nav-links">
+    <li *ngFor="let link of navLinks" routerLinkActive="active">
+      <a [routerLink]="link.path">
+        <span class="material-icons">{{ link.icon }}</span>
+        <span class="link-text">{{ link.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

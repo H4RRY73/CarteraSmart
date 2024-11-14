@@ -1,0 +1,94 @@
+<app-sidebar></app-sidebar>
+<div class="crear-letra-container">
+  <h2>Crear Letra</h2>
+
+  <!-- Dropdown de clientes -->
+  <div class="form-group" *ngIf="clients.length > 0">
+    <label for="client-select">Seleccionar Cliente</label>
+    <select
+      id="client-select"
+      [(ngModel)]="selectedClientId"
+      (ngModelChange)="onClientChange($event)"
+    >
+      <option value="" disabled [selected]="!selectedClientId">
+        Seleccione un cliente
+      </option>
+      <option *ngFor="let client of clients" [value]="client.id">
+        {{ client.name }} - {{ client.dni }}
+      </option>
+    </select>
+  </div>
+
+  <p *ngIf="clients.length === 0">No hay clientes disponibles para seleccionar.</p>
+
+  <!-- Mostrar cliente seleccionado -->
+  <div *ngIf="selectedClient">
+    <h3>Cliente Seleccionado:</h3>
+    <p>ID: {{ selectedClient.id }}</p>
+    <p>Nombre: {{ selectedClient.name }}</p>
+    <p>Correo: {{ selectedClient.email }}</p>
+    <p>DNI: {{ selectedClient.dni }}</p>
+  </div>
+
+  <!-- Formulario para capturar datos de la letra -->
+  <form [formGroup]="letraForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="valorNominal">Valor Nominal</label>
+      <input id="valorNominal" formControlName="valorNominal" type="number" />
+    </div>
+
+    <div class="form-group">
+      <label for="fechaEmision">Fecha de Emisión</label>
+      <input id="fechaEmision" formControlName="fechaEmision" type="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="fechaVencimiento">Fecha de Vencimiento</label>
+      <input id="fechaVencimiento" formControlName="fechaVencimiento" type="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="fechaDescuento">Fecha de Descuento</label>
+      <input id="fechaDescuento" formControlName="fechaDescuento" type="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="tasaEfectiva">Tasa Efectiva</label>
+      <input id="tasaEfectiva" formControlName="tasaEfectiva" type="number" step="0.01" />
+    </div>
+
+    <div class="form-group">
+      <label for="seguro">Seguro</label>
+      <select id="seguro" formControlName="seguro">
+        <option *ngFor="let option of seguroOptions" [value]="option.rate">
+          {{ option.name }} ({{ option.rate * 100 }}%)
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="costosAdministrativos">Costos Administrativos</label>
+      <input
+        id="costosAdministrativos"
+        formControlName="costosAdministrativos"
+        type="number"
+      />
+    </div>
+
+    <button type="submit" [disabled]="letraForm.invalid">Generar Letra</button>
+  </form>
+
+  <!-- Mostrar resultados -->
+  <div *ngIf="resultados">
+    <h3>Resultados de la Letra</h3>
+    <p><strong>Días de Descuento:</strong> {{ resultados.diasDescuento }}</p>
+    <p><strong>Tasa Efectiva del Periodo (TEP):</strong> {{ resultados.tasaEfectivaPeriodo | number:'1.5-5' }}%</p>
+    <p><strong>Tasa de Descuento (d%):</strong> {{ resultados.tasaDescuento | number:'1.5-5' }}%</p>
+    <p><strong>Descuento (D):</strong> S/ {{ resultados.descuento | number:'1.2-2' }}</p>
+    <p><strong>Valor Neto Antes del Seguro:</strong> S/ {{ resultados.valorNetoAntesSeguro | number:'1.2-2' }}</p>
+    <p><strong>Costo del Seguro:</strong> S/ {{ resultados.costoSeguro | number:'1.2-2' }}</p>
+    <p><strong>Valor Recibido:</strong> S/ {{ resultados.valorRecibido | number:'1.2-2' }}</p>
+    <p><strong>Valor Entregado:</strong> S/ {{ resultados.valorEntregado | number:'1.2-2' }}</p>
+    <p><strong>TCEA:</strong> {{ resultados.tcea | number:'1.5-5' }}%</p>
+  </div>
+</div>

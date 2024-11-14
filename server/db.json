@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": "aa6f",
+      "companyName": "pepitos sac",
+      "ruc": "12345678910",
+      "username": "Franco Cabraso",
+      "email": "pepito@sac.com",
+      "password": "123456",
+      "clients": [
+        {
+          "id": 1,
+          "name": "peito",
+          "email": "ahh@sahhh.com",
+          "dni": "12345678",
+          "letras": [
+            {
+              "id": 1731612612297,
+              "valorNominal": 10000,
+              "fechaEmision": "2024-08-01",
+              "fechaVencimiento": "2024-11-01",
+              "fechaDescuento": "2024-08-01",
+              "tasaEfectiva": 0.25,
+              "seguro": "0.00165",
+              "costosAdministrativos": 20,
+              "diasDescuento": 90,
+              "tasaEfectivaPeriodo": 5.737126344056409,
+              "tasaDescuento": 5.425839099682416,
+              "descuento": 542.5839099682416,
+              "valorNetoAntesSeguro": 9457.416090031758,
+              "costoSeguro": 16.5,
+              "valorRecibido": 9440.916090031758,
+              "valorEntregado": 10020,
+              "tcea": 26.886183671607355
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "aaaa",
+          "email": "aaaa@aaaa.com",
+          "dni": "21345678"
+        },
+        {
+          "id": 3,
+          "name": "Jose Vasquez",
+          "email": "jose@gmail.com",
+          "dni": "53246790",
+          "letras": [
+            {
+              "id": 1731612699379,
+              "valorNominal": 10000,
+              "fechaEmision": "2024-08-01",
+              "fechaVencimiento": "2024-11-01",
+              "fechaDescuento": "2024-09-01",
+              "tasaEfectiva": 0.25,
+              "seguro": "0.00165",
+              "costosAdministrativos": 20,
+              "diasDescuento": 60,
+              "tasaEfectivaPeriodo": 3.789081555621343,
+              "tasaDescuento": 3.650751600100388,
+              "descuento": 365.0751600100388,
+              "valorNetoAntesSeguro": 9634.92483998996,
+              "costoSeguro": 16.5,
+              "valorRecibido": 9618.42483998996,
+              "valorEntregado": 10020,
+              "tcea": 27.81522682512243
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6934",
+      "companyName": "ahhh",
+      "ruc": "12345678901",
+      "username": "Harold Pepito",
+      "email": "pepito@gmail.com",
+      "password": "123456",
+      "clients": []
+    }
+  ]
+}
