@@ -1,8 +1,10 @@
 <app-sidebar></app-sidebar>
-<div id="letras-content">
-  <div *ngFor="let user of users">
-    <div *ngFor="let client of user.clients">
-      <!-- Tabla para la Información del Cliente y la Letra -->
+
+<!-- Contenedor principal para mostrar las letras si hay un usuario y clientes -->
+<div id="letras-content" *ngIf="currentUser && currentUser.clients && currentUser.clients.length > 0">
+  <div *ngFor="let client of currentUser.clients">
+    <!-- Solo mostrar si el cliente tiene letras -->
+    <div *ngIf="client.letras && client.letras.length > 0">
       <table class="letra-tabla">
         <tbody *ngFor="let letra of client.letras">
           <!-- Fila para el Nombre del Cliente -->

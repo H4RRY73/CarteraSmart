@@ -31,60 +31,64 @@ interface Client {
   letras?: Letra[];
 }
 
+interface User {
+  id: string;
+  companyName: string;
+  ruc: string;
+  username: string;
+  email: string;
+  password: string;
+  clients: Client[];
+}
+
 @Component({
   selector: 'app-letra',
   templateUrl: './letra.component.html',
   styleUrls: ['./letra.component.css']
 })
 export class LetraComponent implements OnInit {
-  users: any[] = [];
-  letras: Letra[] = [];
+  users: User[] = [];
+  currentUser: User | null = null; // Usuario ingresado
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.loadLetras();
+    this.loadUsers();
   }
 
-  loadLetras(): void {
-    this.http.get('http://localhost:3000/users').subscribe(
-      (data: any) => {
+  // Cargar todos los usuarios
+  loadUsers(): void {
+    this.http.get<User[]>('http://localhost:3000/users').subscribe(
+      (data) => {
         this.users = data;
-        this.extractLetras();
+        this.identifyCurrentUser(); // Identificar al usuario ingresado
       },
-      error => {
+      (error) => {
         console.error('Error al cargar los datos:', error);
       }
     );
   }
 
-  extractLetras(): void {
-    this.users.forEach(user => {
-      if (user.clients) {
-        user.clients.forEach((client: Client) => {
-          if (client.letras) {
-            this.letras.push(...client.letras);
-          }
-        });
-      }
-    });
+  // Identificar al usuario que ha ingresado
+  identifyCurrentUser(): void {
+    // Aquí debes establecer la lógica para identificar al usuario ingresado.
+    // Selecciona el primer usuario como ejemplo (modifica según tu lógica de autenticación)
+    this.currentUser = this.users[0] || null;
   }
 
+  // Exportar las letras a un archivo PDF
   exportToPDF(): void {
-    const data = document.getElementById('letras-content'); // Identifica el contenedor de las letras
+    const data = document.getElementById('letras-content');
     if (data) {
       html2canvas(data).then(canvas => {
-        const imgWidth = 208; // Ancho del PDF en mm
-        const pageHeight = 295; // Altura de la página del PDF en mm
+        const imgWidth = 208;
+        const pageHeight = 295;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        const heightLeft = imgHeight;
         const contentDataURL = canvas.toDataURL('image/png');
 
-        const pdf = new jsPDF('p', 'mm', 'a4'); // Crear PDF
-        let position = 0;
-        
-        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-        pdf.save('letras.pdf'); // Descargar el PDF
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight);
+        pdf.save('letras.pdf');
       });
     }
   }
