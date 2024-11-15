@@ -1,2 +1,88 @@
 <app-sidebar></app-sidebar>
-<p>letra works!</p>
+<div id="letras-content">
+  <div *ngFor="let user of users">
+    <div *ngFor="let client of user.clients">
+      <!-- Tabla para la Información del Cliente y la Letra -->
+      <table class="letra-tabla">
+        <tbody *ngFor="let letra of client.letras">
+          <!-- Fila para el Nombre del Cliente -->
+          <tr>
+            <td><strong>Cliente:</strong></td>
+            <td>{{ client.name }}</td>
+          </tr>
+          <!-- Fila para el DNI del Cliente -->
+          <tr>
+            <td><strong>DNI:</strong></td>
+            <td>{{ client.dni }}</td>
+          </tr>
+          <!-- Fila separadora con el título "LETRA" -->
+          <tr>
+            <td colspan="2" class="letra-titulo"><strong>LETRA</strong></td>
+          </tr>
+          <!-- Información de la Letra -->
+          <tr>
+            <td><strong>Valor Nominal:</strong></td>
+            <td>{{ letra.valorNominal | currency:'PEN':'symbol' }}</td>
+          </tr>
+          <tr>
+            <td><strong>Fecha de Emisión:</strong></td>
+            <td>{{ letra.fechaEmision }}</td>
+          </tr>
+          <tr>
+            <td><strong>Fecha de Vencimiento:</strong></td>
+            <td>{{ letra.fechaVencimiento }}</td>
+          </tr>
+          <tr>
+            <td><strong>Fecha de Descuento:</strong></td>
+            <td>{{ letra.fechaDescuento }}</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa Efectiva:</strong></td>
+            <td>{{ letra.tasaEfectiva | number:'1.2-2' }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Costos Administrativos:</strong></td>
+            <td>S/ {{ letra.costosAdministrativos }}</td>
+          </tr>
+          <tr>
+            <td><strong>Días de Descuento:</strong></td>
+            <td>{{ letra.diasDescuento }}</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa de Descuento:</strong></td>
+            <td>{{ letra.tasaDescuento | number:'1.5-5' }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Descuento:</strong></td>
+            <td>S/ {{ letra.descuento | number:'1.2-2' }}</td>
+          </tr>
+          <tr>
+            <td><strong>Valor Neto Antes del Seguro:</strong></td>
+            <td>S/ {{ letra.valorNetoAntesSeguro | number:'1.2-2' }}</td>
+          </tr>
+          <tr>
+            <td><strong>Costo del Seguro:</strong></td>
+            <td>S/ {{ letra.costoSeguro | number:'1.2-2' }}</td>
+          </tr>
+          <tr>
+            <td><strong>Valor Recibido:</strong></td>
+            <td>S/ {{ letra.valorRecibido | number:'1.2-2' }}</td>
+          </tr>
+          <tr>
+            <td><strong>Valor Entregado:</strong></td>
+            <td>S/ {{ letra.valorEntregado }}</td>
+          </tr>
+          <tr>
+            <td><strong>TCEA:</strong></td>
+            <td>{{ letra.tcea | number:'1.5-5' }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Botón para Exportar a PDF -->
+<div class="export-button">
+  <button (click)="exportToPDF()">Exportar a PDF</button>
+</div>

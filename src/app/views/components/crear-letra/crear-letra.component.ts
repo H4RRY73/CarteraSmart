@@ -11,7 +11,7 @@ export class CrearLetraComponent implements OnInit {
   clients: any[] = [];
   selectedClientId: number | null = null;
   selectedClient: any = null;
-
+  
   // Opciones de seguro
   seguroOptions = [
     { name: 'BCP', rate: 0.00165 },

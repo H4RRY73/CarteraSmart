@@ -1,0 +1,48 @@
+.letra-tabla {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px; /* Elimina el espacio arriba y deja solo margen abajo */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .letra-tabla td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .letra-titulo {
+    text-align: center;
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+  }
+  
+  h4, p {
+    margin: 10px 0;
+    color: #333;
+  }
+
+  .export-button {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .export-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .export-button button:hover {
+    background-color: #0056b3;
+  }
