@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import {AuthService} from "../../../auth/auth.service";
+// Importa AuthService
 
 interface Letra {
   id: number;
@@ -50,7 +52,7 @@ export class LetraComponent implements OnInit {
   users: User[] = [];
   currentUser: User | null = null; // Usuario ingresado
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -71,9 +73,13 @@ export class LetraComponent implements OnInit {
 
   // Identificar al usuario que ha ingresado
   identifyCurrentUser(): void {
-    // Aquí debes establecer la lógica para identificar al usuario ingresado.
-    // Selecciona el primer usuario como ejemplo (modifica según tu lógica de autenticación)
-    this.currentUser = this.users[0] || null;
+    const authenticatedUser = this.authService.getAuthenticatedUser();
+    if (authenticatedUser) {
+      this.currentUser = this.users.find(user => user.id === authenticatedUser.id) || null;
+    } else {
+      console.warn('No se encontró un usuario autenticado.');
+      this.currentUser = null;
+    }
   }
 
   // Exportar las letras a un archivo PDF

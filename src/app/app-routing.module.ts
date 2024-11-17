@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'clientes', component: ClientesComponent},
-    {path: 'crear-letra', component: CrearLetraComponent},
+  {path: 'crear-letra', component: CrearLetraComponent},
   {path: 'letras', component: LetraComponent},
 
 

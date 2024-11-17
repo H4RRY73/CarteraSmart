@@ -67,6 +67,39 @@
               "tcea": 27.81522682512243
             }
           ]
+        },
+        {
+          "id": 4,
+          "name": "asdh",
+          "email": "asdh@asdg.com",
+          "dni": "54769801"
+        },
+        {
+          "id": 5,
+          "name": "oiasjhdkfglkah",
+          "email": "lkajsdhg@alskjdhfg.com",
+          "dni": "97632234",
+          "letras": [
+            {
+              "id": 1731812302261,
+              "valorNominal": 1095232,
+              "fechaEmision": "2024-09-01",
+              "fechaVencimiento": "2024-12-01",
+              "fechaDescuento": "2024-10-14",
+              "tasaEfectiva": 0.25,
+              "seguro": "0.00256",
+              "costosAdministrativos": 20,
+              "diasDescuento": 47,
+              "tasaEfectivaPeriodo": 2.9561136433298607,
+              "tasaDescuento": 2.8712366257051083,
+              "descuento": 31446.70232044257,
+              "valorNetoAntesSeguro": 1063785.2976795575,
+              "costoSeguro": 2803.79392,
+              "valorRecibido": 1060981.5037595574,
+              "valorEntregado": 1095252,
+              "tcea": 27.570406414517823
+            }
+          ]
         }
       ]
     },
@@ -77,7 +110,53 @@
       "username": "Harold Pepito",
       "email": "pepito@gmail.com",
       "password": "123456",
-      "clients": []
+      "clients": [
+        {
+          "id": 1,
+          "name": "asdf",
+          "email": "asdf@asdf.com",
+          "dni": "87654325"
+        },
+        {
+          "id": 2,
+          "name": "ertqer",
+          "email": "rtehjgfds@asdfg.com",
+          "dni": "56893723",
+          "letras": [
+            {
+              "id": 1731812417037,
+              "valorNominal": 1000000000,
+              "fechaEmision": "2024-06-01",
+              "fechaVencimiento": "2025-01-01",
+              "fechaDescuento": "2024-09-01",
+              "tasaEfectiva": 0.3,
+              "seguro": "0.00256",
+              "costosAdministrativos": 45,
+              "diasDescuento": 120,
+              "tasaEfectivaPeriodo": 9.139288306110593,
+              "tasaDescuento": 8.37396729258211,
+              "descuento": 83739672.9258211,
+              "valorNetoAntesSeguro": 916260327.0741789,
+              "costoSeguro": 2560000,
+              "valorRecibido": 913700327.0741789,
+              "valorEntregado": 1000000045,
+              "tcea": 31.095781696097813
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "qwery",
+          "email": "wertyh@gdklfsja.com",
+          "dni": "53978412"
+        },
+        {
+          "id": 4,
+          "name": "asdf",
+          "email": "awesrgd@asdfg.com",
+          "dni": "57342455"
+        }
+      ]
     }
   ]
 }
