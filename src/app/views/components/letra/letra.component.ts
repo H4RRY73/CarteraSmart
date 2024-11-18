@@ -87,13 +87,28 @@ export class LetraComponent implements OnInit {
     const data = document.getElementById('letras-content');
     if (data) {
       html2canvas(data).then(canvas => {
-        const imgWidth = 208;
-        const pageHeight = 295;
+        const imgWidth = 208; // Ancho de la imagen en mm (A4 es de 210mm)
+        const pageHeight = 295; // Altura de la página en mm (A4 es de 297mm)
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+  
         const contentDataURL = canvas.toDataURL('image/png');
-
         const pdf = new jsPDF('p', 'mm', 'a4');
-        pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight);
+        let position = 0; // Posición inicial en la página
+  
+        // Agrega la primera imagen
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        // Si hay contenido restante, añade más páginas
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        // Guarda el archivo PDF
         pdf.save('letras.pdf');
       });
     }
