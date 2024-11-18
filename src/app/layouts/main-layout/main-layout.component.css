@@ -1,0 +1,100 @@
+/* Estilo para el contenedor de la imagen del logo */
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #34495e; /* Línea separadora debajo del logo */
+  margin-bottom: 20px; /* Espaciado entre el logo y las opciones */
+}
+
+/* Imagen del logo */
+.sidebar-logo .logo {
+  max-width: 80%; /* Limitar el tamaño máximo de la imagen */
+  max-height: 150px; /* Altura máxima de la imagen */
+  object-fit: contain; /* Ajustar la imagen sin distorsionarla */
+}
+
+/* Contenedor principal del Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  position: fixed;
+  transition: width 0.3s ease; /* Suaviza la transición del colapso */
+  z-index: 10; /* Asegura que el sidebar esté encima del contenido */
+}
+
+/* Contenido principal */
+.content {
+  margin-left: 250px; /* Margen izquierdo igual al ancho del sidebar */
+  padding: 20px;
+  transition: margin-left 0.3s ease; /* Suaviza los cambios de diseño */
+  min-height: 100vh;
+}
+
+/* Lista de enlaces */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #34495e;
+}
+
+.nav-links a .material-icons {
+  margin-right: 15px;
+}
+
+.nav-links a .link-text {
+  font-size: 16px;
+}
+
+/* Clase activa para la navegación */
+.active {
+  background-color: #34495e;
+}
+
+/* Responsive: Sidebar colapsado en pantallas pequeñas */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar .nav-links a .link-text {
+    display: none; /* Oculta el texto en pantallas pequeñas */
+  }
+
+  .content {
+    margin-left: 60px; /* Ajusta el margen al ancho reducido del sidebar */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px; /* Más pequeño en pantallas muy pequeñas */
+  }
+
+  .content {
+    margin-left: 50px;
+  }
+}
