@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+
 <div class="crear-letra-container">
   <h2>Crear Letra</h2>
 
@@ -34,7 +34,7 @@
   <form [formGroup]="letraForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="valorNominal">Valor Nominal</label>
-      <input id="valorNominal" formControlName="valorNominal" type="number" />
+      <input id="valorNominal" formControlName="valorNominal" type="number" min="0" />
     </div>
 
     <div class="form-group">
@@ -54,7 +54,7 @@
 
     <div class="form-group">
       <label for="tasaEfectiva">Tasa Efectiva</label>
-      <input id="tasaEfectiva" formControlName="tasaEfectiva" type="number" step="0.01" />
+      <input id="tasaEfectiva" formControlName="tasaEfectiva" type="number" step="0.01" min="0"/>
     </div>
 
     <div class="form-group">
@@ -72,6 +72,7 @@
         id="costosAdministrativos"
         formControlName="costosAdministrativos"
         type="number"
+        min="0"
       />
     </div>
 

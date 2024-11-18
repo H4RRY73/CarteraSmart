@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+
 <div class="clients-container">
   <div class="clients-header">
     <button (click)="toggleForm()">Agregar cliente</button>
@@ -38,7 +38,7 @@
       <form [formGroup]="clientForm" (ngSubmit)="addClient()">
         <div class="form-group">
           <label for="name">Nombre</label>
-          <input id="name" formControlName="name" class="styled-input" placeholder="Ej. Juan Pérez" />
+          <input id="name" formControlName="name" class="styled-input" placeholder="Ej. Fernando Diaz" />
           <div *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" class="error">
             El nombre es obligatorio.
           </div>
@@ -46,7 +46,7 @@
 
         <div class="form-group">
           <label for="email">Correo Electrónico</label>
-          <input id="email" formControlName="email" class="styled-input" type="email" placeholder="Ej. juan.perez@example.com" />
+          <input id="email" formControlName="email" class="styled-input" type="email" placeholder="Ej. fernando@example.com" />
           <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="error">
             El correo es obligatorio y debe ser válido.
           </div>
@@ -54,7 +54,7 @@
 
         <div class="form-group">
           <label for="dni">DNI</label>
-          <input id="dni" formControlName="dni" class="styled-input" placeholder="Ej. 12345678" />
+          <input id="dni" formControlName="dni" class="styled-input" placeholder="Ej. password" />
           <div *ngIf="clientForm.get('dni')?.invalid && clientForm.get('dni')?.touched" class="error">
             El DNI es obligatorio y debe tener 8 dígitos.
           </div>

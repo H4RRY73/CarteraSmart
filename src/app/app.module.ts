@@ -16,6 +16,7 @@ import { CrearLetraComponent } from './views/components/crear-letra/crear-letra.
 import { LetraComponent } from './views/components/letra/letra.component';
 
 import {HttpClientModule} from "@angular/common/http";
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HttpClientModule} from "@angular/common/http";
     ProfileComponent,
     ClientesComponent,
     CrearLetraComponent,
-    LetraComponent
+    LetraComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,

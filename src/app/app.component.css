@@ -1,0 +1,25 @@
+/* Ajusta el contenido principal para que no sea tapado por el sidebar */
+.content {
+  margin-left: 250px; /* Deja un margen igual al ancho del sidebar */
+  padding: 20px;
+  transition: margin-left 0.3s ease; /* Transición suave al colapsar el sidebar */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px; /* Colapsa el sidebar para pantallas pequeñas */
+  }
+
+  .sidebar .nav-links a .link-text {
+    display: none; /* Esconde el texto de los links en pantallas pequeñas */
+  }
+
+  .sidebar .logo {
+    display: none; /* Opcional: Oculta el logo en pantallas pequeñas */
+  }
+
+  .content {
+    margin-left: 60px; /* Ajusta el margen según el ancho colapsado del sidebar */
+  }
+}

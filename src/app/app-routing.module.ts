@@ -7,18 +7,23 @@ import {ClientesComponent} from "./views/components/clientes/clientes.component"
 import {CrearLetraComponent} from "./views/components/crear-letra/crear-letra.component";
 import {LetraComponent} from "./views/components/letra/letra.component";
 import {RegisterComponent} from "./auth/register/register.component";
+import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {path: 'home', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'clientes', component: ClientesComponent},
-  {path: 'crear-letra', component: CrearLetraComponent},
-  {path: 'letras', component: LetraComponent},
-
-
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: '',
+    component: MainLayoutComponent, // Layout con el sidebar
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'clientes', component: ClientesComponent },
+      { path: 'crear-letra', component: CrearLetraComponent },
+      { path: 'letras', component: LetraComponent },
+    ]
+  }
 ];
 
 @NgModule({
