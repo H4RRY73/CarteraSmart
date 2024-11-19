@@ -60,7 +60,7 @@ export class LetraComponent implements OnInit {
 
   // Cargar todos los usuarios
   loadUsers(): void {
-    this.http.get<User[]>('http://localhost:3000/users').subscribe(
+    this.http.get<User[]>('https://carterasmart-api.vercel.app/users').subscribe(
       (data) => {
         this.users = data;
         this.identifyCurrentUser(); // Identificar al usuario ingresado
@@ -91,15 +91,15 @@ export class LetraComponent implements OnInit {
         const pageHeight = 295; // Altura de la página en mm (A4 es de 297mm)
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         let heightLeft = imgHeight;
-  
+
         const contentDataURL = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', 'a4');
         let position = 0; // Posición inicial en la página
-  
+
         // Agrega la primera imagen
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
-  
+
         // Si hay contenido restante, añade más páginas
         while (heightLeft > 0) {
           position = heightLeft - imgHeight;
@@ -107,7 +107,7 @@ export class LetraComponent implements OnInit {
           pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-  
+
         // Guarda el archivo PDF
         pdf.save('letras.pdf');
       });

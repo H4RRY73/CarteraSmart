@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
     const user = this.registerForm.value;
     delete user.confirmPassword; // Eliminar confirmPassword antes de enviar
 
-    this.http.post('http://localhost:3000/users', user).subscribe({
+    this.http.post('https://carterasmart-api.vercel.app/users', user).subscribe({
       next: () => {
         this.successMessage = 'Registro exitoso.';
         this.registerForm.reset();

@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users'; // URL base del JSON Server
+  private apiUrl = 'https://carterasmart-api.vercel.app/users'; // URL base del JSON Server
   private currentUser: any = null; // Usuario autenticado
 
   constructor(private http: HttpClient) {}
